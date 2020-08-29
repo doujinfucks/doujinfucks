@@ -1,0 +1,22 @@
+.nav-base {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+}
+.nav-item {
+  margin: 0;
+  padding: 5px;
+  display: inline-block;
+}
+.nav-item:hover {
+  background-color: #111;
+}
+.nav {
+  position: absolute;
+  left: 0px;
+  height: 40px;
+  background-color: #2c64b4;
+  width: 100%;
+  margin: 0 auto;
+}
