@@ -79,7 +79,7 @@ export default function Repositories() {
 function RepoCard({ styles, title, logo, description, time, stars, url }) {
   const classes = styles;
   const redirectToGH = (url) => {
-    window.location.href = url;
+    window.open(url);
   };
   return (
     <Card className={classes.root}>
