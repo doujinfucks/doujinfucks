@@ -9,7 +9,7 @@ import {
   makeStyles,
   CardActionArea,
 } from "@material-ui/core";
-
+import truncateWithDots from "../../util/truncateWithDots";
 const useStyles = makeStyles((theme) => ({
   card: {
     height: "100%",
@@ -42,13 +42,14 @@ export default function Repositories() {
   const [repos, setRepos] = useState([]);
 
   useEffect(() => {
-    async function fetchData() {
-      const data = await fetch("https://api.github.com/orgs/longshotdev/repos");
-      const parse = await data.json();
-      setRepos(parse);
-    }
-    fetchData();
-  }, [repos]);
+    fetchRepos();
+  }, []);
+  async function fetchRepos() {
+    const res = await fetch("https://api.github.com/orgs/doujinfucks/repos");
+    const data = await res.json();
+    console.log(data);
+    setRepos(data);
+  }
   const classes = useStyles();
   return (
     <Container maxWidth="md">
@@ -56,9 +57,9 @@ export default function Repositories() {
         Repositories
       </Typography>
       <Grid container className={classes.root} spacing={2}>
-        {repos.length
-          ? repos.splice(0, 6).map((c) => (
-              <Grid item xs={12} sm={6}>
+        {repos
+          ? repos.map((c) => (
+              <Grid key={c.name} item xs={12} sm={6}>
                 <RepoCard
                   styles={classes}
                   logo={c.owner.avatar_url}
@@ -90,10 +91,13 @@ function RepoCard({ styles, title, logo, description, time, stars, url }) {
               {title}
             </Typography>
             <Typography variant="subtitle1" color="textSecondary">
-              {description}
+              {truncateWithDots(description, 25)}
             </Typography>
             <Typography variant="subtitle2" color="textSecondary">
-              <span role="img">⭐</span>Stars: {stars}
+              <span role="img" aria-label="ok emoji">
+                ⭐
+              </span>
+              Stars: {stars}
             </Typography>
             <Typography variant="subtitle2" color="textSecondary">
               Last Updated: {time}

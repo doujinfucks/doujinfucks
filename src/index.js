@@ -2,21 +2,13 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import * as serviceWorker from "./serviceWorker";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-import { NoMatchPage, Main, About } from "./pages/index";
-import NavRoute from "./components/NavRoute";
 import { ThemeProvider } from "@material-ui/core";
+import Router from "./components/Router";
 import theme from "./components/MUITheme";
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
-      <BrowserRouter>
-        <Switch>
-          <NavRoute exact path="/" component={Main} />
-          <NavRoute exact path="/about" component={About} />
-          <Route component={NoMatchPage} />
-        </Switch>
-      </BrowserRouter>
+      <Router />
     </ThemeProvider>
   </React.StrictMode>,
   document.getElementById("root")
