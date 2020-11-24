@@ -28,14 +28,11 @@ const useStyles = makeStyles((theme) => ({
   },
   details: {
     display: "flex",
-    minWidth: "308.55px",
+    minWidth: "100%",
     flexDirection: "column",
   },
   content: {
     flex: "1 0 auto",
-  },
-  cover: {
-    width: 151,
   },
 }));
 export default function Repositories() {
@@ -52,7 +49,7 @@ export default function Repositories() {
   }
   const classes = useStyles();
   return (
-    <Container maxWidth="md">
+    <Container style={{ paddingTop: 20 }} maxWidth="md">
       <Typography gutterBottom variant="h3">
         Repositories
       </Typography>
@@ -91,7 +88,7 @@ function RepoCard({ styles, title, logo, description, time, stars, url }) {
               {title}
             </Typography>
             <Typography variant="subtitle1" color="textSecondary">
-              {truncateWithDots(description, 25)}
+              {truncateWithDots(description, 100)}
             </Typography>
             <Typography variant="subtitle2" color="textSecondary">
               <span role="img" aria-label="ok emoji">
@@ -105,11 +102,6 @@ function RepoCard({ styles, title, logo, description, time, stars, url }) {
           </CardContent>
         </CardActionArea>
       </div>
-      <CardMedia
-        className={classes.cover}
-        image={logo}
-        title="AndyIsCool5463"
-      />
     </Card>
   );
 }

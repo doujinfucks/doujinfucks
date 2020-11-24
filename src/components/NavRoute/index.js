@@ -8,7 +8,6 @@ const NavRoute = ({ exact, path, component: Component }) => (
     path={path}
     render={(props) => (
       <div>
-        <Navbar />
         <Component {...props} />
       </div>
     )}

@@ -5,7 +5,7 @@ export default function Header({ ...props }) {
   const classes = props.class;
   return (
     <div className={classes.heroContent}>
-      <Container maxWidth="sm">
+      <Container className={classes.fuckyou} maxWidth="sm">
         <Typography align="center">
           <Avatar
             src="https://avatars0.githubusercontent.com/u/70341512?s=800&u=29827cae1f63eabd92093a1bc717727190667b01&v=4"

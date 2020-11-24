@@ -7,6 +7,9 @@ import Cards from "./Cards";
 import Header from "./Header";
 import Repos from "./Repositories";
 const useStyles = makeStyles((theme) => ({
+  fuckyou: {
+    padding: theme.spacing(22, 0, 0),
+  },
   heroContent: {
     backgroundColor: theme.palette.background.paper,
     color: "white",
